@@ -70,7 +70,7 @@ class UsersController extends AbstractController
 
                 }
             } else {
-                $form->setError('email', 'пользователь с таким Email не найден');
+                $form->setError('login', 'пользователь с таким Email не найден');
             }
         }
 
