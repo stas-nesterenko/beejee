@@ -89,6 +89,10 @@ class TasksController extends AbstractController
 
     public function edit()
     {
+        if (!Auth::getInstance()->ifLogged()) {
+            return false;
+        }
+
         $Task = new Task();
 
         if (!isset($_GET['id']) || !$task = $Task->db->find($_GET['id'])) {
