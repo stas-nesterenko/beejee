@@ -89,8 +89,12 @@ class TasksController extends AbstractController
 
     public function edit()
     {
+        $form = new Form();
+
         if (!Auth::getInstance()->ifLogged()) {
-            return false;
+            $form->setLocation(SITE_URL . 'login');
+            header('Content-Type: application/json');
+            return $form->getResponse();
         }
 
         $Task = new Task();
@@ -105,9 +109,7 @@ class TasksController extends AbstractController
 
         $this->setPageTitle('Редактирование задачи');
 
-        $form = new Form();
         $this->fillFormWithInputs($form);
-
 
         return $this->render('tasks_edit',  ['validationRules' => $form->getValidationRules(), 'task' => $task]);
     }
