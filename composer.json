@@ -1,0 +1,24 @@
+{
+    "name": "stas/beejee",
+    "description": "For test purpose",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stas Nesterenko",
+            "email": "staslimon@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BJ\\": "system/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "jenssegers/blade": "dev-master",
+        "ext-gettext": "*",
+        "usmanhalalit/pixie": "2.*@dev",
+        "ext-json": "*",
+        "almasaeed2010/adminlte": "~2.4"
+    }
+}
