@@ -92,9 +92,14 @@ class TasksController extends AbstractController
         $form = new Form();
 
         if (!Auth::getInstance()->ifLogged()) {
-            $form->setLocation(SITE_URL . 'login');
-            header('Content-Type: application/json');
-            return $form->getResponse();
+            if (!empty($_POST)) {
+                $form->setLocation(SITE_URL . 'login');
+                header('Content-Type: application/json');
+                return $form->getResponse();
+            } else {
+                header('location: ' . SITE_URL . 'login', null, 301);
+                die();
+            }
         }
 
         $Task = new Task();
